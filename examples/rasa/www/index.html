@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>Rasa NLU Example</title>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+    <script>
+
+function getRandomIntInclusive(min, max) {
+  /** Get a random integer in the range, inclusive. */
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function handleResult(intent, entities) {
+  /** Handle the result of an NLU query. */
+  var output = $('#output');
+  if (intent.name === 'random_number') {
+    if (entities.length === 2) {
+      var nums = entities.map(e => e.value).sort();
+      var lower = nums[0];
+      var higher = nums[1];
+      var r = getRandomIntInclusive(lower, higher);
+      output.text(`Random number between ${lower} and ${higher}: ${r}`);
+
+    } else if (entities.length === 1) {
+      var num = entities[0].value;
+      var r = getRandomIntInclusive(0, num);
+      output.text(`Random number between 0 and ${num}: ${r}`);
+    } else {
+      output.text('Random number in what range? idgi');
+    }
+  } else if (intent.name === 'food_craving') {
+    var foodTypes = entities.filter(e => e.entity === 'food');
+    if (foodTypes.length >= 1) {
+      var foodType = foodTypes[0].value;
+      output.text(`Let's get you some ${foodType}!`);
+    } else {
+      output.text('You seem hungry, but I don\'t know what you want!');
+    }
+  }
+}
+
+function doQuery() {
+  /** Send a query to the NLU server. */
+  var q = $('#query').val();
+  var resultIntent = $('#result_intent');
+  var resultEntities = $('#result_entities');
+
+  $.get('/interpret', {query: q}, function(data) {
+    console.log(data);
+
+    var intent = data.intent;
+    var entities = data.entities;
+
+    handleResult(intent, entities);
+
+    resultIntent.text(`intent: ${intent.name} (${(intent.confidence * 100).toFixed(2)}%)`);
+
+    var entityHtml = '';
+    for (const entity of entities) {
+      entityHtml += `<li>${entity.value} : ${entity.entity}</li>`;
+    }
+    resultEntities.html(entityHtml);
+  });
+
+  return false;
+}
+
+    </script>
+  </head>
+  <body>
+    <form onsubmit="return doQuery()">
+      <div>
+        <label for="query">Query:</label>
+        <input type="text" id="query" name="query">
+        <button type="submit">Go</button>
+      </div>
+    </form>
+    <p id="output"></p>
+    <hr />
+    <p id="result_intent"></p>
+    <ul id="result_entities"></ul>
+  </body>
+</html>

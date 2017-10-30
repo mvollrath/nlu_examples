@@ -1,0 +1,4 @@
+*.sh linguist-language=Shell
+*.py linguist-language=Python
+*.html linguist-language=HTML
+*.json linguist-language=JSON

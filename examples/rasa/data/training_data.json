@@ -1,0 +1,224 @@
+﻿{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "random number between 1 and 10",
+        "intent": "random_number",
+        "entities": []
+      },
+      {
+        "text": "random 0 to 100",
+        "intent": "random_number",
+        "entities": []
+      },
+      {
+        "text": "number between 3 and 7",
+        "intent": "random_number",
+        "entities": []
+      },
+      {
+        "text": "random number from 2 to 16",
+        "intent": "random_number",
+        "entities": []
+      },
+      {
+        "text": "random 3 to 9",
+        "intent": "random_number",
+        "entities": []
+      },
+      {
+        "text": "random number less than 256",
+        "intent": "random_number",
+        "entities": []
+      },
+      {
+        "text": "random number under 5,000",
+        "intent": "random_number",
+        "entities": []
+      },
+      {
+        "text": "generate number between 42 and 666",
+        "intent": "random_number",
+        "entities": []
+      },
+      {
+        "text": "generate a random number between 876 and 543",
+        "intent": "random_number",
+        "entities": []
+      },
+      {
+        "text": "1,000 to 10,001",
+        "intent": "random_number",
+        "entities": []
+      },
+      {
+        "text": "i'm craving some pizza",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 17,
+            "end": 22,
+            "value": "pizza",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "hungry for pancakes",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 11,
+            "end": 19,
+            "value": "pancakes",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "i want some pie",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 12,
+            "end": 15,
+            "value": "pie",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "find me waffles",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 8,
+            "end": 15,
+            "value": "waffles",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "a pineapple would be good right now",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 2,
+            "end": 11,
+            "value": "pineapple",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "i need a meatball",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 9,
+            "end": 17,
+            "value": "meatball",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "hungry for egg",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 11,
+            "end": 14,
+            "value": "egg",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "carrot would be delicious",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 0,
+            "end": 6,
+            "value": "carrot",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "how about a ripe melon",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 17,
+            "end": 22,
+            "value": "melon",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "find me some candy",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 13,
+            "end": 18,
+            "value": "candy",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "where can i get a slice of bread",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 27,
+            "end": 32,
+            "value": "bread",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "where do they sell cheese",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 19,
+            "end": 25,
+            "value": "cheese",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "i want a hot dog",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 9,
+            "end": 16,
+            "value": "hot dog",
+            "entity": "food"
+          }
+        ]
+      },
+      {
+        "text": "i've got a fever and the only cure is peanut butter",
+        "intent": "food_craving",
+        "entities": [
+          {
+            "start": 38,
+            "end": 51,
+            "value": "peanut butter",
+            "entity": "food"
+          }
+        ]
+      }
+    ]
+  }
+}
