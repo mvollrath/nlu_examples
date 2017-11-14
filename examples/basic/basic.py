@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Toy example of categorizing sentences with a neural network.
-# Each sentence may describe either an animal or a place.
+# Toy example of categorizing phrases with a neural network.
+# Each phrase may describe either an animal or a place.
 
 from keras.models import Sequential
 from keras import layers
@@ -11,7 +11,7 @@ import numpy as np
 # dirty, dog and park.
 
 # Each training example is a vector representing the entire vocabulary.
-# If a word exists in the sentence, that element is a 1.
+# If a word exists in the phrase, that element is a 1.
 # Otherwise, it is a 0.
 
 training_X = np.array([
@@ -23,7 +23,7 @@ training_X = np.array([
     [1, 0, 1],  # dirty park
 ])
 
-# We are classifying each sentence into one of two categories:
+# We are classifying each phrase into one of two categories:
 # animal or place.
 # Output categories are vectorized much like our input word vectors.
 
@@ -40,7 +40,7 @@ training_Y = np.array([
 
 optimizer = optimizers.RMSprop(lr=0.08)
 
-# Build our simple model, which only has one layer of two neurons.
+# Build our simple model, which only has an output layer with two neurons.
 
 model = Sequential()
 model.add(layers.Dense(2, input_shape=(3,), activation='softmax'))
@@ -57,7 +57,7 @@ model.summary()
 model.fit(
     x=training_X,
     y=training_Y,
-    epochs=25,
+    epochs=20,
 )
 
 # Evaluate the accuracy of our model against the training dataset (again).
@@ -88,7 +88,7 @@ classes = [
 for i in range(len(predictions)):
     x = training_X[i]
     y = predictions[i]
-    sentence = ' '.join([words[j] for j in range(len(words)) if x[j] == 1])
+    phrase = ' '.join([words[j] for j in range(len(words)) if x[j] == 1])
     confidence = max(y)
     classification = classes[list(y).index(confidence)]
-    print('{} => {} ({:.2f}%)'.format(sentence, classification, confidence * 100))
+    print('{} => {} ({:.2f}%)'.format(phrase, classification, confidence * 100))
