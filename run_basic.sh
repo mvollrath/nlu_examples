@@ -1,9 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
-SCRIPT=$(readlink -f "$0")
-DIR=$(dirname "$SCRIPT")
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-docker build --pull -t nlu_presentation "$DIR"
+docker build -t nlu_presentation "$DIR"
 docker run -it --rm nlu_presentation
